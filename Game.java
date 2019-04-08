@@ -34,30 +34,47 @@ public class Game
      */
     private void createRooms()
     {
-        Room outside, theater, pub, lab, office;
-      
+        Room footlocker,backroom,hallofmall,louisvuitton,fendi,Apple,Starbucks,bloomingdales,polo,GameStop,Tesla,NeimanMarcus;
         // create the rooms
-        outside = new Room("outside the main entrance of the university");
-        theater = new Room("in a lecture theater");
-        pub = new Room("in the campus pub");
-        lab = new Room("in a computing lab");
-        office = new Room("in the computing admin office");
+        footlocker = new Room("You're in FootLocker");
+        backroom = new Room("in backroom of FootLocker");
+        hallofmall = new Room("in the mall");
+        louisvuitton = new Room("in Louis Vuitton");
+        fendi = new Room("in the Fendi Store");
+        Apple = new Room("in the Apple store");
+        Starbucks = new Room("in Starbucks");
+        bloomingdales = new Room("in Bloomingdales");
+        polo = new Room("in Polo Ralph Lauren");
+        GameStop = new Room("trapped in GameStop");
+        Tesla = new Room("in Tesla");
+        NeimanMarcus = new Room(" in Neiman Marcus");
         
         // initialise room exits
-        outside.setExit("east", theater);
-        outside.setExit("south", lab);
-        outside.setExit("west", pub);
+        footlocker.setExit("north", hallofmall);
+        footlocker.setExit("south", backroom);
+        
 
-        theater.setExit("west", outside);
+        backroom.setExit("north", footlocker);
 
-        pub.setExit("east", outside);
+        hallofmall.setExit("south", footlocker);
+        hallofmall.setExit("west", louisvuitton);
 
-        lab.setExit("north", outside);
-        lab.setExit("east", office);
+        louisvuitton.setExit("north", Apple);
+        louisvuitton.setExit("east", hallofmall);
+        louisvuitton.setExit("west", fendi);
+        louisvuitton.setExit("south", NeimanMarcus);
+        
+        Apple.setExit("south", louisvuitton);
+        
+        NeimanMarcus.setExit("north", louisvuitton);
+        NeimanMarcus.setExit("east", GameStop);
+        NeimanMarcus.setExit("west", polo);
+        
+        GameStop.setExit("TrapDoor!", null);
 
-        office.setExit("west", lab);
+        fendi.setExit("east", louisvuitton);
 
-        currentRoom = outside;  // start game outside
+        currentRoom = footlocker;  // start game outside
     }
 
     /**
@@ -114,12 +131,21 @@ public class Game
             case GO:
                 goRoom(command);
                 break;
+                
+            case LOOK:
+                 look();
+                 break;
 
             case QUIT:
                 wantToQuit = quit(command);
                 break;
         }
         return wantToQuit;
+    }
+    
+    private void look()
+    {
+        System.out.println(currentRoom.getLongDescription());
     }
 
     // implementations of user commands:
