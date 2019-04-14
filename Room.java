@@ -32,6 +32,8 @@ public class Room
         this.description = description;
         exits = new HashMap<String, Room>();
     }
+    
+   
 
     /**
      * Define an exit from this room.

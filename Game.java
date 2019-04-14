@@ -34,7 +34,7 @@ public class Game
      */
     private void createRooms()
     {
-        Room footlocker,backroom,hallofmall,louisvuitton,fendi,Apple,Starbucks,bloomingdales,polo,GameStop,Tesla,NeimanMarcus;
+        Room footlocker,backroom,hallofmall,louisvuitton,fendi,Apple,Starbucks,bloomingdales,polo,GameStop,Tesla,NeimanMarcus,aubonpon,italianfood,verizon;
         // create the rooms
         footlocker = new Room("You're in FootLocker");
         backroom = new Room("in backroom of FootLocker");
@@ -48,6 +48,9 @@ public class Game
         GameStop = new Room("trapped in GameStop");
         Tesla = new Room("in Tesla");
         NeimanMarcus = new Room(" in Neiman Marcus");
+        aubonpon = new Room("In Au Bon Pon trapped!");
+        italianfood = new Room("Went into an Italian restuarant and are now trapped");
+        verizon = new Room("Now in verizon Trapped!");
         
         // initialise room exits
         footlocker.setExit("north", hallofmall);
@@ -65,6 +68,9 @@ public class Game
         louisvuitton.setExit("south", NeimanMarcus);
         
         Apple.setExit("south", louisvuitton);
+        Apple.setExit("east", aubonpon);
+        Apple.setExit("North", italianfood);
+        Apple.setExit("west", verizon);
         
         NeimanMarcus.setExit("north", louisvuitton);
         NeimanMarcus.setExit("east", GameStop);
@@ -125,7 +131,9 @@ public class Game
                 break;
 
             case HELP:
-                printHelp();
+                
+                System.out.println("Your command words are:");
+                parser.showCommands();
                 break;
 
             case GO:
@@ -135,6 +143,10 @@ public class Game
             case LOOK:
                  look();
                  break;
+                 
+            case EAT:
+                System.out.println("You have eaten now and you are not hungry any more");
+                break;
 
             case QUIT:
                 wantToQuit = quit(command);
