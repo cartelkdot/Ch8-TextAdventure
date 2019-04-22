@@ -64,6 +64,19 @@ public class Room
     {
         return "You are " + description + ".\n" + getExitString();
     }
+    
+    // /**
+     // * Initiate the Transporter room,
+     // */
+    // public void isTransporterRoom()
+    // {
+        // if(currentRoom.isTransporterRoom()){
+            // nextRoom = getRandomRoom();
+        // }
+        // else {
+            // nextRoom = currentRoom.getExit(direction);
+        // }
+    // }
 
     /**
      * Return a string describing the room's exits, for example

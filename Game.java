@@ -200,7 +200,17 @@ public class Game
             currentRoom = nextRoom;
             System.out.println(currentRoom.getLongDescription());
         }
-    }
+        
+        
+        // if (currentRoom == transporterRoom) {
+            // nextRoom= getRandomRoom();
+            
+        // }    
+        // else {
+            // nextRoom = currentRoom.getExit(direction);
+        // }
+        }
+        
 
     /** 
      * "Quit" was entered. Check the rest of the command to see
