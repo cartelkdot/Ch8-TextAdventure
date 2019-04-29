@@ -19,6 +19,7 @@ public class Game
 {
     private Parser parser;
     private Room currentRoom;
+    private TransporterRoom transportRoom;
         
     /**
      * Create the game and initialise its internal map.
@@ -201,15 +202,9 @@ public class Game
             System.out.println(currentRoom.getLongDescription());
         }
         
+
         
-        // if (currentRoom == transporterRoom) {
-            // nextRoom= getRandomRoom();
-            
-        // }    
-        // else {
-            // nextRoom = currentRoom.getExit(direction);
-        // }
-        }
+    }
         
 
     /** 

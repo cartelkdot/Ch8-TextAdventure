@@ -1,4 +1,4 @@
-
+import java.util.*;
 /**
  * Write a description of class TransporterRoom here.
  *
@@ -10,11 +10,14 @@ public class TransporterRoom extends Room
     // instance variables - replace the example below with your own
     
     
-    public TransporterRoom(){
+    public TransporterRoom(String description){
+        super(description);
     }
     
     /**
-     * Constructor for objects of class TransporterRoom
+     * Returns a random room, independent of the direction parameter
+     * @param direction Ignored.
+     * @return A randomly selected room.
      */
     public  Room getExit(String direction)
     {
@@ -24,7 +27,8 @@ public class TransporterRoom extends Room
     
     private Room findRandomRoom()
     {
-        
+        Random r = new Random();
+        return allRooms.get(r.nextInt(allRooms.size() - 1));
     }
 
     

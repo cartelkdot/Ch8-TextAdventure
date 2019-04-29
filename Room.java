@@ -31,6 +31,7 @@ public class Room
     {
         this.description = description;
         exits = new HashMap<String, Room>();
+        allRooms.add(this);
     }
     
    
